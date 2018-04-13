@@ -1,0 +1,47 @@
+   `#1 You'll need to copy the 'ffmpeg' file located under '_bin/_install' to the following hidden root folder on your mac:
+/usr/local/bin/
+
+
+#2 You'll need to install Homebrew to enable 'fswatch' command.
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+#3 Install 'fswatch' command
+brew install fswatch
+
+
+
+
+***Keep Your Machine Awake
+
+There's a script in /_bin/ called 'coffee.sh'. If you don't have admin privileges to stop the Screensaver from running or putting your machine to sleep, you can run this file in terminal 'bash coffee.sh', and it will keep your machine awake for 6 hours. This is so your machine doesn't fall asleep while filming.
+
+
+
+
+***Chrome on Second Screen
+
+Ideally, you need to be filming on a non-mac screen, otherwise your videos will be filmed at the wrong size. Here, I have a second regular screen running attached to the mac we're using. I launched Chrome from the taskbar on that screen, so it remembers this is the screen to launch on.
+
+My script will automatically launch and close Chrome when it needs it in fullscreen mode. But it will launch it on the last screen it was originally launched in. Which is why you need to make sure it was open on the second screen only and quit from it there also.
+
+I achieve the most consistent results with a 2 monitor setup, 3 monitors seems to confuse the script.
+
+You will also need to ensure the toolbar in Chrome is hidden whilst in fullscreen mode, otherwise it will appear in the recording. 
+Enter fullscreen mode in chrome, select: 'view', uncheck "Always show toolbar in fullscreen mode".
+
+
+
+
+***Watch Folder
+
+Run script 'bash watch_banners.sh' from /_bin/ in a new terminal window. Now, if you copy a folder into the 'banner-to-videos' folder, this will trigger the script to run. It checks every 5 seconds. It will look inside the folder you just added to see if there is an index.html or backup.gif file to launch in Chrome.
+
+
+
+
+***Naming Convention
+
+The banner folder you copy into 'banners-to-videos' folder, must have a strict naming convention. You can call it anything you want, as long as there are no spaces and the size is listed at the end with a hyphen in front of it. eg. This_is_my_banner-300x600  -- you can't use a hyphen anywhere else in the name. The Hyphen is how it knows where to split the filename and grab the size of your banner from the numbers that follow.
+
+You can test it this out by moving the folder from the 'completed' folder into the 'banners-to-videos' folder once you get everything running and see if it runs okay. It should run fine if you've moved the ffmpeg file into the right folder in the root of your machine.
